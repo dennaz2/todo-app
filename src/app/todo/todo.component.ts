@@ -8,12 +8,8 @@ import { Todo } from "../interfaces/todo";
 })
 export class TodoComponent implements OnInit {
   todoList: Todo[] = [
-    { task: "Go buy milk", completed: false },
-    { task: "Feed dog", completed: true },
-    { task: "Eat", completed: true },
-    { task: "Workout", completed: false },
-    { task: "Homework", completed: false },
-    { task: "Clean", completed: false }
+    { task: "Add Task", completed: false },
+    { task: "Complted Task", completed: true }
   ];
 
   newTask: Todo = {
