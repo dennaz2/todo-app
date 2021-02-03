@@ -31,6 +31,25 @@ export class TodoComponent implements OnInit {
     };
   }
 
+  removeTask(i:number){
+    const index = this.todoList[i];
+    this.todoList.splice(i, 1);
+  }
+
+  completeTask(i) {
+    const task = this.todoList[i];
+    task.completed = !task.completed;
+  }
+
+  getFilteredTodos(): Todo[] {
+    if (!this.filterText.trim()) {
+      return this.todoList;
+    }
+
+    const match = this.filterText.toLowerCase();
+    return this.todoList.filter(todo =>
+      todo.task.toLowerCase().includes(match));
+  }
 
   constructor() { }
 

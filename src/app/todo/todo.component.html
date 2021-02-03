@@ -1,1 +1,22 @@
-<p>todo works!</p>
+<body>
+  <section class="main">
+    <h1>TODO List</h1>
+    <p>A place to store your todos</p>
+    <form>
+      <input type="text" placeholder="Filter your to-dos" name="filter" [(ngModel)]="filterText" />
+    </form>
+    <ol>
+      <li *ngFor="let task of getFilteredTodos(); index as i">
+        <button class="com-btn" *ngIf="!task.completed" (click)="completeTask(i)">Complete</button>
+        <span class="todo-list" [ngClass]="{ completed: task.completed }">{{
+          task.task
+        }}</span>
+        <button class="x-btn" (click)="removeTask(i)">X</button>
+      </li>
+    </ol>
+    <form (ngSubmit)="addTask()">
+      <input type="text" placeholder="add your to-do" [(ngModel)]="newTask.task" name="text"/>
+      <button class="addBtn" >Add</button>
+    </form>
+  </section>
+</body>
